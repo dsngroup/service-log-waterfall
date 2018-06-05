@@ -1,6 +1,6 @@
 # waterfall
 
-[![Build Status](https://travis-ci.org/dsngroup/service-log-waterfall.svg?branch=master)](https://travis-ci.org/dsngroup/service-log-waterfall)
+[![Build Status](https://travis-ci.org/dsngroup/waterfall.svg?branch=master)](https://travis-ci.org/dsngroup/waterfall)
 
 Waterfall visualizer for service logging.
 
