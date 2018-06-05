@@ -41,4 +41,5 @@ class LoggingExtractor @Inject()(cc: ControllerComponents) extends AbstractContr
   def list = Action { implicit request =>
     Ok(Json.obj("status" -> 0, "message" -> s"listing 1000 lines of stored logs."))
   }
+
 }
