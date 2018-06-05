@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package controllers
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-import javax.inject.Inject
-import play.api.mvc._
-
-class HomeController @Inject()(assets: Assets, cc: ControllerComponents) extends AbstractController(cc) {
-
-  /** Root route for index page rendering */
-  def index: Action[AnyContent] = assets.at("index.html")
-}
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});

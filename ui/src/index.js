@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package controllers
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import javax.inject.Inject
-import play.api.mvc._
-
-class HomeController @Inject()(assets: Assets, cc: ControllerComponents) extends AbstractController(cc) {
-
-  /** Root route for index page rendering */
-  def index: Action[AnyContent] = assets.at("index.html")
-}
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();

@@ -14,13 +14,21 @@
  * limitations under the License.
  */
 
-package controllers
+import React, { Component } from 'react';
+import logo from './logo.png';
+import './App.css';
 
-import javax.inject.Inject
-import play.api.mvc._
-
-class HomeController @Inject()(assets: Assets, cc: ControllerComponents) extends AbstractController(cc) {
-
-  /** Root route for index page rendering */
-  def index: Action[AnyContent] = assets.at("index.html")
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">SERVICE LOGGING WATERFALL</h1>
+        </header>
+      </div>
+    );
+  }
 }
+
+export default App;
