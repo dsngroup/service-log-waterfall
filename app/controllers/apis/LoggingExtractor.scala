@@ -22,6 +22,8 @@ import play.api.mvc._
 
 class LoggingExtractor @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
+  import models.event.ServiceLogHelper._
+
   def mark = Action(parse.json) { implicit request =>
 
     val markLoggingResult = request.body.validate[ServiceLog]
