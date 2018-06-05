@@ -14,14 +14,31 @@
  * limitations under the License.
  */
 
-package controllers
+package controllers.apis
 
 import javax.inject.Inject
+import play.api.libs.json.{JsError, Json}
 import play.api.mvc._
 
 class LoggingExtractor @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  def mark(id: String) = Action { implicit request: Request[AnyContent] =>
-    Ok(s"Mark the log with id: [$id].")
+  import model.event.ServiceLogHelper._
+
+  def mark = Action(parse.json) { implicit request =>
+
+    val markLoggingResult = request.body.validate[ServiceLog]
+
+    markLoggingResult.fold(
+      err => {
+        BadRequest(Json.obj("status" -> 1, "message" -> JsError.toJson(err)))
+      },
+      slog => {
+        Ok(Json.obj("status" -> 0, "message" -> s"${slog.id} is successfully marked."))
+      }
+    )
+  }
+
+  def list = Action { implicit request =>
+    Ok(Json.obj("status" -> 0, "message" -> s"listing 1000 lines of stored logs."))
   }
 }

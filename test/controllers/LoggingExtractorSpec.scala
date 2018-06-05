@@ -1,5 +1,6 @@
 package controllers
 
+import controllers.apis.LoggingExtractor
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
 import play.api.test._
@@ -14,12 +15,12 @@ class LoggingExtractorSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
 
   "LoggingExtractor GET" should {
 
-    "post the id with log data is valid" in {
+    "listing log data is valid" in {
       val extractor = new LoggingExtractor(stubControllerComponents())
-      val resp = extractor.mark("jon").apply(FakeRequest(GET, "/jon/log"))
+      val resp = extractor.list.apply(FakeRequest(GET, "/api/log"))
 
       status(resp) mustBe OK
-      contentType(resp) mustBe Some("text/plain")
+      contentType(resp) mustBe Some("application/json")
     }
   }
 }
