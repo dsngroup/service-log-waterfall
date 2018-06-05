@@ -1,2 +1,16 @@
-*.class
-*.log
+# Play related ignores.
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+
+# ignore g8 also.
+/.g8
+
+# ignore gradle build
+.gradle
+build
